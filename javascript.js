@@ -46,3 +46,28 @@ function playRound (playerSelection, computerSelection) {
 
     return results;
 }
+
+/* plays 5 rounds of rock paper scissors */
+function game () {
+    let playerScore = 0,
+        computerScore = 0,
+        roundResults = '',
+        playerSelection = '',
+        computerSelection = '';
+
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt('Rock, Paper, or Scissors?');
+        computerSelection = computerPlay();
+        roundResults = playRound(playerSelection, computerSelection);
+
+        if (roundResults.includes('win')) {
+            ++playerScore;
+        } else {
+            ++computerScore;
+        }
+
+        console.log(roundResults);
+        console.log(`Player Score: ${playerScore}`);
+        console.log(`Computer Score: ${computerScore}`);
+    }
+}
