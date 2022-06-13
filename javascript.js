@@ -3,11 +3,11 @@ function computerPlay () {
     let play;
 
     if (randomNum === 0) {
-        play = 'Rock';
+        play = 'rock';
     } else if (randomNum === 1) {
-        play = 'Paper';
+        play = 'paper';
     } else {
-        play = 'Scissors';
+        play = 'scissors';
     }
 
     return play;
@@ -16,28 +16,27 @@ function computerPlay () {
 /* plays a single round */
 function playRound (playerSelection, computerSelection) {
     let lowerCasePlayerSelection = playerSelection.toLowerCase();
-    let lowerCaseComputerSelection = computerSelection.toLowerCase();
     let results = '';
 
-    console.log("computer: " + lowerCaseComputerSelection);
+    console.log("computer: " + computerSelection);
     console.log("Player: " + lowerCasePlayerSelection);
 
-    if (lowerCasePlayerSelection === lowerCaseComputerSelection) {
+    if (lowerCasePlayerSelection === computerSelection) {
         results = "It's a tie!";
     } else if (lowerCasePlayerSelection === 'rock'){
-        if (lowerCaseComputerSelection === 'paper') {
+        if (computerSelection === 'paper') {
             results = "You lose! Paper beats Rock"
         } else {
             results = "You win! Rock beats Scissors"
         }
     } else if (lowerCasePlayerSelection === 'paper') {
-        if (lowerCaseComputerSelection === 'scissors') {
+        if (computerSelection === 'scissors') {
             results = "You lose! Scissors beats Paper"
         } else {
             results = "You win! Paper beats Rock"
         }
     } else if (lowerCasePlayerSelection === 'scissors') {
-        if (lowerCaseComputerSelection === 'rock') {
+        if (computerSelection === 'rock') {
             results = "You lose! Rock beats Scissors"
         } else {
             results = "You win! Scissors beats Paper"
