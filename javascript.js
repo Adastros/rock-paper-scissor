@@ -47,26 +47,15 @@ function playRound (playerSelection, computerSelection) {
 }
 
 /* plays 5 rounds of rock paper scissors */
+/*
 function game () {
-    let playerScore = 0,
-        computerScore = 0,
-        roundResults = '',
-        playerSelection = '',
-        computerSelection = '';
+    
+}*/
 
-    for (let i = 0; i < 5; i++) {
-        playerSelection = prompt('Rock, Paper, or Scissors?');
-        computerSelection = computerPlay();
-        roundResults = playRound(playerSelection, computerSelection);
-
-        if (roundResults.includes('win')) {
-            ++playerScore;
-        } else {
-            ++computerScore;
-        }
-
-        console.log(roundResults);
-        console.log(`Player Score: ${playerScore}`);
-        console.log(`Computer Score: ${computerScore}`);
-    }
-}
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+buttons.forEach((button) => {
+    return button.addEventListener('click', (e) => {
+        console.log(playRound(e.target.textContent, computerPlay()));
+    });
+});
