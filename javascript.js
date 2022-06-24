@@ -13,49 +13,84 @@ function computerPlay () {
     return play;
 }
 
-/* plays a single round */
 function playRound (playerSelection, computerSelection) {
     let lowerCasePlayerSelection = playerSelection.toLowerCase();
-    let results = '';
+    let result = '';
 
     console.log("computer: " + computerSelection);
     console.log("Player: " + lowerCasePlayerSelection);
 
     if (lowerCasePlayerSelection === computerSelection) {
-        results = "It's a tie!";
+        result = "It's a tie!";
     } else if (lowerCasePlayerSelection === 'rock'){
         if (computerSelection === 'paper') {
-            results = "You lose! Paper beats Rock"
+            result = "You lose! Paper beats Rock."
         } else {
-            results = "You win! Rock beats Scissors"
+            result = "You win! Rock beats Scissors."
         }
     } else if (lowerCasePlayerSelection === 'paper') {
         if (computerSelection === 'scissors') {
-            results = "You lose! Scissors beats Paper"
+            result = "You lose! Scissors beats Paper."
         } else {
-            results = "You win! Paper beats Rock"
+            result = "You win! Paper beats Rock."
         }
     } else if (lowerCasePlayerSelection === 'scissors') {
         if (computerSelection === 'rock') {
-            results = "You lose! Rock beats Scissors"
+            result = "You lose! Rock beats Scissors."
         } else {
-            results = "You win! Scissors beats Paper"
+            result = "You win! Scissors beats Paper."
         }
     }
 
-    return results;
+    return result;
 }
 
-/* plays 5 rounds of rock paper scissors */
-/*
-function game () {
-    
-}*/
+function updateScore (roundResult) {
+    if (roundResult.includes('win')) {
+        playerScore++;
+    } else if (roundResult.includes('lose')) {
+        computerScore++;
+    }
+}
+
+function displayPlayerScore (playerScore) {
+    let playerScoreNode = document.getElementById('playerScore');
+    playerScoreNode.textContent = playerScore;
+}
+
+function displayComputerScore (computerScore) {
+    let computerScoreNode = document.getElementById('computerScore');
+    computerScoreNode.textContent = computerScore;
+}
+
+function displayTextResult (roundResult) {
+    let resultNode = document.getElementById('textResult'),
+        gameResult = '';
+
+    if (computerScore === 5) {
+        computerScore = 0;
+        playerScore = 0;
+        gameResult = ' You lost the game!';
+    } else if (playerScore === 5) {
+        computerScore = 0;
+        playerScore = 0;
+        gameResult =' You won the game!';
+    }
+
+    resultNode.textContent = roundResult + gameResult;
+}
+
+let computerScore = 0,
+    playerScore = 0;
 
 const buttons = document.querySelectorAll('button');
-console.log(buttons);
 buttons.forEach((button) => {
     return button.addEventListener('click', (e) => {
-        console.log(playRound(e.target.textContent, computerPlay()));
+        let roundResult = playRound(e.target.textContent, computerPlay());
+        updateScore(roundResult);
+        displayPlayerScore(playerScore);
+        displayComputerScore(computerScore);
+        displayTextResult(roundResult);
     });
 });
+
