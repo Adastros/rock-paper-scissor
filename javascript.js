@@ -8,7 +8,7 @@ const playerScoreNode = document.getElementById('playerScore'),
 
 buttonNodes.forEach((button) => {
     return button.addEventListener('click', (e) => {
-        let roundResult = playRound(e.currentTarget.id, computerPlay());
+        let roundResult = playRound(e.currentTarget.className, computerPlay());
         updateScore(roundResult);
         displayPlayerScore(playerScore);
         displayComputerScore(computerScore);

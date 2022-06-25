@@ -9,32 +9,34 @@
 </head>
 
 <body>
-    <button id="rock">
+    <h1>Rock, Paper, Scissors</h1>
+    <button class="rock">
         <p class="screen-reader">rock</p>
         <img src="./images/Rock.png" alt="Closed or fisted hand to represent rock." draggable="false">
     </button>
-    <button id="paper">
+    <button class="paper">
         <p class="screen-reader">paper</p>
         <img src="./images/Paper.png" alt="Open flat palm to represent paper." draggable="false">
     </button>
-    <button id="scissors">
+    <button class="scissors">
         <p class="screen-reader">paper</p>
         <img src="./images/Scissors.png"
             alt="Half closed hand with index and middle finger pointing out to represent scissors." draggable="false">
     </button>
     <div>
-        <p id="textResult"></p>
         <div>
-            <div>
-                Computer Score:
-                <div id="computerScore"></div>
-            </div>
-            <div>
+            <p>
                 Player Score:
-                <div id="playerScore"></div>
-            </div>
+                <span id="playerScore"></span>
+            </p>
+            <p>
+                Computer Score:
+                <span id="computerScore"></span>
+            </p>
         </div>
+        <p id="textResult"></p>
     </div>
+    <footer>Made by Adastros as Part of The Odin Project</footer>
 </body>
 
 </html>
