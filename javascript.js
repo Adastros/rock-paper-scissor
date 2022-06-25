@@ -1,14 +1,14 @@
 let computerScore = 0,
     playerScore = 0;
 
-let playerScoreNode = document.getElementById('playerScore'),
+const playerScoreNode = document.getElementById('playerScore'),
     computerScoreNode = document.getElementById('computerScore'),
-    resultNode = document.getElementById('textResult');
+    resultNode = document.getElementById('textResult'),
+    buttonNodes = document.querySelectorAll('button');
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
+buttonNodes.forEach((button) => {
     return button.addEventListener('click', (e) => {
-        let roundResult = playRound(e.target.textContent, computerPlay());
+        let roundResult = playRound(e.currentTarget.id, computerPlay());
         updateScore(roundResult);
         displayPlayerScore(playerScore);
         displayComputerScore(computerScore);
@@ -16,14 +16,14 @@ buttons.forEach((button) => {
     });
 });
 
-function computerPlay () {
+function computerPlay() {
     let randomNum = Math.floor(Math.random() * 3),
         play = ['rock', 'paper', 'scissors'];
 
     return play[randomNum];
 }
 
-function playRound (playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     let lowerCasePlayerSelection = playerSelection.toLowerCase(),
         result = '';
 
@@ -32,7 +32,7 @@ function playRound (playerSelection, computerSelection) {
 
     if (lowerCasePlayerSelection === computerSelection) {
         result = "It's a tie!";
-    } else if (lowerCasePlayerSelection === 'rock'){
+    } else if (lowerCasePlayerSelection === 'rock') {
         if (computerSelection === 'paper') {
             result = "You lose! Paper beats Rock."
         } else {
@@ -55,7 +55,7 @@ function playRound (playerSelection, computerSelection) {
     return result;
 }
 
-function updateScore (roundResult) {
+function updateScore(roundResult) {
     if (roundResult.includes('win')) {
         playerScore++;
     } else if (roundResult.includes('lose')) {
@@ -63,15 +63,15 @@ function updateScore (roundResult) {
     }
 }
 
-function displayPlayerScore (playerScore) {
+function displayPlayerScore(playerScore) {
     playerScoreNode.textContent = playerScore;
 }
 
-function displayComputerScore (computerScore) {
+function displayComputerScore(computerScore) {
     computerScoreNode.textContent = computerScore;
 }
 
-function displayTextResult (roundResult) {
+function displayTextResult(roundResult) {
     let gameResult = '';
 
     if (computerScore === 5) {
@@ -81,7 +81,7 @@ function displayTextResult (roundResult) {
     } else if (playerScore === 5) {
         computerScore = 0;
         playerScore = 0;
-        gameResult =' You won the game!';
+        gameResult = ' You won the game!';
     }
 
     resultNode.textContent = roundResult + gameResult;

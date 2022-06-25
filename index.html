@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock, Paper, Scissors</title>
     <script src="javascript.js" defer></script>
 </head>
+
 <body>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <button id="rock">
+        <p class="screen-reader">rock</p>
+        <img src="./images/Rock.png" alt="Closed or fisted hand to represent rock." draggable="false">
+    </button>
+    <button id="paper">
+        <p class="screen-reader">paper</p>
+        <img src="./images/Paper.png" alt="Open flat palm to represent paper." draggable="false">
+    </button>
+    <button id="scissors">
+        <p class="screen-reader">paper</p>
+        <img src="./images/Scissors.png"
+            alt="Half closed hand with index and middle finger pointing out to represent scissors." draggable="false">
+    </button>
     <div>
         <p id="textResult"></p>
         <div>
@@ -23,4 +36,5 @@
         </div>
     </div>
 </body>
+
 </html>
