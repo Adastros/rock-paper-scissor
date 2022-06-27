@@ -17,7 +17,7 @@ buttonNodes.forEach((button) => {
       computerMove = computerPlay(),
       roundResult = playRound(playerMove, computerMove);
 
-    updateScore(roundResult);
+    //updateScore(roundResult);
     displayMoveSelection(playerMove, computerMove);
     displayPlayerScore(playerScore);
     displayComputerScore(computerScore);
@@ -34,37 +34,46 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  let result = "";
+  let result = "",
+  winner = '';
 
   if (playerSelection === computerSelection) {
-    result = "It's a tie!";
+    result = "Ah, a tie!";
   } else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
-      result = "You lose! Paper beats Rock.";
+      result = "That's one for me. Paper beats Rock.";
+      winner = 'stranger';
     } else {
-      result = "You win! Rock beats Scissors.";
+      result = "You won this one. Rock beats Scissors.";
+      winner = 'player';
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
-      result = "You lose! Scissors beats Paper.";
+      result = "That's one for me. Scissors beats Paper.";
+      winner = 'stranger';
     } else {
-      result = "You win! Paper beats Rock.";
+      result = "You won this one. Paper beats Rock.";
+      winner = 'player';
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "rock") {
-      result = "You lose! Rock beats Scissors.";
+      result = "That's one for me. Rock beats Scissors.";
+      winner = 'stranger';
     } else {
-      result = "You win! Scissors beats Paper.";
+      result = "You won this one. Scissors beats Paper.";
+      winner = 'player';
     }
   }
+
+  updateScore(winner);
 
   return result;
 }
 
-function updateScore(roundResult) {
-  if (roundResult.includes("win")) {
+function updateScore(winner) {
+  if (winner === 'player') {
     playerScore++;
-  } else if (roundResult.includes("lose")) {
+  } else if (winner === 'stranger') {
     computerScore++;
   }
 }
@@ -111,11 +120,11 @@ function displayGameResult() {
   if (computerScore === 5) {
     computerScore = 0;
     playerScore = 0;
-    gameResult = " You lost the game!";
+    gameResult = " I won! Thanks for the meal. Want to play again?";
   } else if (playerScore === 5) {
     computerScore = 0;
     playerScore = 0;
-    gameResult = " You won the game!";
+    gameResult = " Hmph, you won the game. Want to play again?";
   }
 
   gameResultNode.textContent = gameResult;
