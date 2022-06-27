@@ -9,34 +9,68 @@
 </head>
 
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <button class="rock">
-        <p class="screen-reader">rock</p>
-        <img src="./images/Rock.png" alt="Closed or fisted hand to represent rock." draggable="false">
-    </button>
-    <button class="paper">
-        <p class="screen-reader">paper</p>
-        <img src="./images/Paper.png" alt="Open flat palm to represent paper." draggable="false">
-    </button>
-    <button class="scissors">
-        <p class="screen-reader">paper</p>
-        <img src="./images/Scissors.png"
-            alt="Half closed hand with index and middle finger pointing out to represent scissors." draggable="false">
-    </button>
-    <div>
-        <div>
-            <p>
-                Player Score:
-                <span id="playerScore"></span>
-            </p>
-            <p>
-                Computer Score:
-                <span id="computerScore"></span>
-            </p>
+    <main>
+        <h1>Rock, Paper, Scissors</h1>
+        <h3>Player vs Computer</h3>
+        <h3>First to win 5 rounds wins the game!</h3>
+        <div class="button-container">
+            <button class="rock">
+                <p class="screen-reader">rock</p>
+                <img class="selectable-icon" src="./images/Rock.png" alt="Closed or fisted hand to represent rock."
+                    draggable="false">
+            </button>
+            <button class="paper">
+                <p class="screen-reader">paper</p>
+                <img class="selectable-icon" src="./images/Paper.png" alt="Open flat palm to represent paper."
+                    draggable="false">
+            </button>
+            <button class="scissors">
+                <p class="screen-reader">paper</p>
+                <img class="selectable-icon" src="./images/Scissors.png"
+                    alt="Half closed hand with index and middle finger pointing out to represent scissors."
+                    draggable="false">
+            </button>
         </div>
-        <p id="textResult"></p>
-    </div>
-    <footer>Made by Adastros as Part of The Odin Project</footer>
+        <div class="display-move-container">
+            <div>
+                <p>You played</p>
+                <div class="">
+                    <img class="player-move rock hide" src="./images/Rock.png" alt="Closed or fisted hand to represent rock."
+                    draggable="false">
+                    <img class="player-move paper hide" src="./images/Paper.png" alt="Open flat palm to represent paper."
+                    draggable="false">
+                    <img class="player-move scissors hide" src="./images/Scissors.png"
+                    alt="Half closed hand with index and middle finger pointing out to represent scissors."
+                    draggable="false">
+                </div>
+            </div>
+            <div>
+                <p>The computer played</p>
+                <div class="">
+                    <img class="computer-move rock hide" src="./images/Rock.png" alt="Closed or fisted hand to represent rock."
+                    draggable="false">
+                    <img class="computer-move paper hide" src="./images/Paper.png" alt="Open flat palm to represent paper."
+                    draggable="false">
+                    <img class="computer-move scissors hide" src="./images/Scissors.png"
+                    alt="Half closed hand with index and middle finger pointing out to represent scissors."
+                    draggable="false">
+                </div>
+            </div>
+        </div>
+        <div class="display-score-container">
+            <div class="score">
+                Player Score:
+                <div class="playerScore"></div>
+            </div>
+            <div class="score">
+                Computer Score:
+                <div class="computerScore"></div>
+            </div>
+        </div>
+        <p class="roundResult"></p>
+        <p class="gameResult"></p>
+    </main>
+    <footer>Made by Adastros as Part of The Odin Project Curriculum</footer>
 </body>
 
 </html>

@@ -1,18 +1,28 @@
 let computerScore = 0,
-    playerScore = 0;
+    playerScore = 0,
+    previousPlayerMove = undefined,
+    previousComputerMove = undefined;
 
-const playerScoreNode = document.getElementById('playerScore'),
-    computerScoreNode = document.getElementById('computerScore'),
-    resultNode = document.getElementById('textResult'),
-    buttonNodes = document.querySelectorAll('button');
+const playerScoreNode = document.querySelector('.playerScore'),
+    computerScoreNode = document.querySelector('.computerScore'),
+    roundResultNode = document.querySelector('.roundResult'),
+    gameResultNode = document.querySelector('.gameResult'),
+    buttonNodes = document.querySelectorAll('button'),
+    playerMoveNodes = document.querySelectorAll('.player-move'),
+    computerMoveNodes = document.querySelectorAll('.computer-move');
 
 buttonNodes.forEach((button) => {
     return button.addEventListener('click', (e) => {
-        let roundResult = playRound(e.currentTarget.className, computerPlay());
+        let playerMove = e.currentTarget.className,
+            computerMove = computerPlay(),
+            roundResult = playRound(playerMove, computerMove);
+
         updateScore(roundResult);
+        displayMoveSelection(playerMove, computerMove);
         displayPlayerScore(playerScore);
         displayComputerScore(computerScore);
         displayTextResult(roundResult);
+        displayGameResult();
     });
 });
 
@@ -24,27 +34,23 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let lowerCasePlayerSelection = playerSelection.toLowerCase(),
-        result = '';
+    let result = '';
 
-    //console.log("computer: " + computerSelection);
-    //console.log("Player: " + lowerCasePlayerSelection);
-
-    if (lowerCasePlayerSelection === computerSelection) {
+    if (playerSelection === computerSelection) {
         result = "It's a tie!";
-    } else if (lowerCasePlayerSelection === 'rock') {
+    } else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
             result = "You lose! Paper beats Rock."
         } else {
             result = "You win! Rock beats Scissors."
         }
-    } else if (lowerCasePlayerSelection === 'paper') {
+    } else if (playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
             result = "You lose! Scissors beats Paper."
         } else {
             result = "You win! Paper beats Rock."
         }
-    } else if (lowerCasePlayerSelection === 'scissors') {
+    } else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
             result = "You lose! Rock beats Scissors."
         } else {
@@ -63,6 +69,30 @@ function updateScore(roundResult) {
     }
 }
 
+function displayMoveSelection(playerSelection, computerSelection) {
+    if (previousPlayerMove !== undefined) {
+        previousPlayerMove.classList.toggle('hide');
+    }
+
+    if (previousComputerMove !== undefined) {
+        previousComputerMove.classList.toggle('hide');
+    }
+
+    playerMoveNodes.forEach((playerMove) => {
+        if (playerMove.classList.contains(playerSelection)) {
+            playerMove.classList.toggle('hide');
+            previousPlayerMove = playerMove;
+        }
+    });
+
+    computerMoveNodes.forEach((computerMove) => {
+        if (computerMove.classList.contains(computerSelection)) {
+            computerMove.classList.toggle('hide');
+            previousComputerMove = computerMove;
+        }
+    });
+}
+
 function displayPlayerScore(playerScore) {
     playerScoreNode.textContent = playerScore;
 }
@@ -72,6 +102,10 @@ function displayComputerScore(computerScore) {
 }
 
 function displayTextResult(roundResult) {
+    roundResultNode.textContent = roundResult;
+}
+
+function displayGameResult() {
     let gameResult = '';
 
     if (computerScore === 5) {
@@ -84,5 +118,5 @@ function displayTextResult(roundResult) {
         gameResult = ' You won the game!';
     }
 
-    resultNode.textContent = roundResult + gameResult;
+    gameResultNode.textContent = gameResult;
 }
