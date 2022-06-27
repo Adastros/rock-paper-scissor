@@ -1,6 +1,6 @@
 html {
   background-color: #eeeeee;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 html,
@@ -28,6 +28,7 @@ main {
   justify-content: center;
   align-items: center;
   align-self: center;
+  gap: 2em;
 }
 
 button {
@@ -48,10 +49,10 @@ img {
 }
 
 footer {
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 1em;
 }
 
 .button-container {
@@ -61,37 +62,24 @@ footer {
 
 .display-move-container {
   display: flex;
+  height: 150px;
+
   gap: 3em;
 }
-/*
-.selectable-icon {
-    
-}
 
-.display-move {
-    
-}
-
-.show-move {
-}
-
-.player-move,
-.computer-move {
-
-}
-*/
 .hide {
   display: none;
 }
 
 .display-score-container {
+  height: 50px;
   display: flex;
+  gap: 3em;
 }
 
-.score {
-  height: 100px;
-  width: 200px;
-  border: 1px solid black;
+.roundResult,
+.gameResult {
+  height: 25px;
 }
 
 .screen-reader {
