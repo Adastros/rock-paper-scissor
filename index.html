@@ -1,76 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <title>Rock, Paper, Scissors</title>
     <script src="javascript.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <h1>Rock, Paper, Scissors</h1>
-        <h3>Player vs Computer</h3>
-        <h3>First to win 5 rounds wins the game!</h3>
-        <div class="button-container">
-            <button class="rock">
-                <p class="screen-reader">rock</p>
-                <img class="selectable-icon" src="./images/Rock-150px.png" alt="Closed or fisted hand to represent rock."
-                    draggable="false">
-            </button>
-            <button class="paper">
-                <p class="screen-reader">paper</p>
-                <img class="selectable-icon" src="./images/Paper-150px.png" alt="Open flat palm to represent paper."
-                    draggable="false">
-            </button>
-            <button class="scissors">
-                <p class="screen-reader">paper</p>
-                <img class="selectable-icon" src="./images/Scissors-150px.png"
-                    alt="Half closed hand with index and middle finger pointing out to represent scissors."
-                    draggable="false">
-            </button>
+      <h1>Rock, Paper, Scissors</h1>
+      <h3>Player vs Computer</h3>
+      <h3>First to win 5 rounds wins the game!</h3>
+      <div class="button-container">
+        <button class="rock">
+          <p class="screen-reader">rock</p>
+          <img
+            class="selectable-icon"
+            src="./images/Rock-150px.png"
+            alt="Closed or fisted hand to represent rock."
+            draggable="false"
+          />
+        </button>
+        <button class="paper">
+          <p class="screen-reader">paper</p>
+          <img
+            class="selectable-icon"
+            src="./images/Paper-150px.png"
+            alt="Open flat palm to represent paper."
+            draggable="false"
+          />
+        </button>
+        <button class="scissors">
+          <p class="screen-reader">paper</p>
+          <img
+            class="selectable-icon"
+            src="./images/Scissors-150px.png"
+            alt="Half closed hand with index and middle finger pointing out to represent scissors."
+            draggable="false"
+          />
+        </button>
+      </div>
+      <div class="display-move-container">
+        <div class="display-move">
+          <p>You played</p>
+          <div class="show-move">
+            <img
+              class="player-move rock hide"
+              src="./images/Rock-100px.png"
+              alt="Closed or fisted hand to represent rock."
+              draggable="false"
+            />
+            <img
+              class="player-move paper hide"
+              src="./images/Paper-100px.png"
+              alt="Open flat palm to represent paper."
+              draggable="false"
+            />
+            <img
+              class="player-move scissors hide"
+              src="./images/Scissors-100px.png"
+              alt="Half closed hand with index and middle finger pointing out to represent scissors."
+              draggable="false"
+            />
+          </div>
         </div>
-        <div class="display-move-container">
-            <div class="display-move">
-                <p>You played</p>
-                <div class="show-move">
-                    <img class="player-move rock hide" src="./images/Rock-100px.png" alt="Closed or fisted hand to represent rock."
-                    draggable="false">
-                    <img class="player-move paper hide" src="./images/Paper-100px.png" alt="Open flat palm to represent paper."
-                    draggable="false">
-                    <img class="player-move scissors hide" src="./images/Scissors-100px.png"
-                    alt="Half closed hand with index and middle finger pointing out to represent scissors."
-                    draggable="false">
-                </div>
-            </div>
-            <div class="display-move">
-                <p>Stranger played</p>
-                <div class="show-move">
-                    <img class="computer-move rock hide" src="./images/Rock-100px.png" alt="Closed or fisted hand to represent rock."
-                    draggable="false">
-                    <img class="computer-move paper hide" src="./images/Paper-100px.png" alt="Open flat palm to represent paper."
-                    draggable="false">
-                    <img class="computer-move scissors hide" src="./images/Scissors-100px.png"
-                    alt="Half closed hand with index and middle finger pointing out to represent scissors."
-                    draggable="false">
-                </div>
-            </div>
+        <div class="display-move">
+          <p>Stranger played</p>
+          <div class="show-move">
+            <img
+              class="computer-move rock hide"
+              src="./images/Rock-100px.png"
+              alt="Closed or fisted hand to represent rock."
+              draggable="false"
+            />
+            <img
+              class="computer-move paper hide"
+              src="./images/Paper-100px.png"
+              alt="Open flat palm to represent paper."
+              draggable="false"
+            />
+            <img
+              class="computer-move scissors hide"
+              src="./images/Scissors-100px.png"
+              alt="Half closed hand with index and middle finger pointing out to represent scissors."
+              draggable="false"
+            />
+          </div>
         </div>
-        <div class="display-score-container">
-            <div class="score">
-                Player Score:
-                <div class="playerScore"></div>
-            </div>
-            <div class="score">
-                Computer Score:
-                <div class="computerScore"></div>
-            </div>
+      </div>
+      <div class="display-score-container">
+        <div class="score">
+          Player Score:
+          <div class="playerScore"></div>
         </div>
-        <p class="roundResult"></p>
-        <p class="gameResult"></p>
+        <div class="score">
+          Computer Score:
+          <div class="computerScore"></div>
+        </div>
+      </div>
+      <p class="roundResult"></p>
+      <p class="gameResult"></p>
     </main>
     <footer>Made by Adastros as Part of The Odin Project Curriculum</footer>
-</body>
-
+  </body>
 </html>
