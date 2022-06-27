@@ -3,10 +3,10 @@ let computerScore = 0,
   previousPlayerMove = undefined,
   previousComputerMove = undefined;
 
-const playerScoreNode = document.querySelector(".playerScore"),
-  computerScoreNode = document.querySelector(".computerScore"),
-  roundResultNode = document.querySelector(".roundResult"),
-  gameResultNode = document.querySelector(".gameResult"),
+const playerScoreNode = document.querySelector(".player-score"),
+  computerScoreNode = document.querySelector(".computer-score"),
+  roundResultNode = document.querySelector(".round-result"),
+  gameResultNode = document.querySelector(".game-result"),
   buttonNodes = document.querySelectorAll("button"),
   playerMoveNodes = document.querySelectorAll(".player-move"),
   computerMoveNodes = document.querySelectorAll(".computer-move");

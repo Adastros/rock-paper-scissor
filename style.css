@@ -43,9 +43,13 @@ button:hover {
   filter: brightness(110%);
 }
 
-h3 {
+h1 {
+    margin-bottom: 0;
+}
+
+h2 {
+    margin: 0;
     padding: 0 0 0.5em 0;
-    margin: 0
 }
 
 img {
@@ -60,6 +64,7 @@ footer {
 }
 
 .intro-text {
+    margin: 0;
   width: 400px;
 }
 
@@ -72,7 +77,6 @@ footer {
   display: flex;
   height: 150px;
   gap: 3em;
-  font-size: 1.25em;
 }
 
 .hide {
@@ -82,11 +86,15 @@ footer {
 .display-score-container {
   display: flex;
   gap: 3em;
-  font-size: 1.25em;
 }
 
-.roundResult,
-.gameResult {
+.player-score,
+.computer-score {
+    font-size: 1.25em;
+}
+
+.round-result,
+.game-result {
   height: 25px;
   font-size: 1.25em;
 }
