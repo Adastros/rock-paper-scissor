@@ -1,3 +1,7 @@
+html {
+    background-color: #EEEEEE;
+}
+
 html,
 body,
 main {
@@ -14,6 +18,9 @@ main {
 body {
     justify-content: space-between;
     margin: 0;
+    background-image: url("./images/dango-offwhite.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 main {
@@ -27,7 +34,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
 }
 
 .button-container {
