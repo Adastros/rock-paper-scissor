@@ -44,12 +44,12 @@ button:hover {
 }
 
 h1 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 h2 {
-    margin: 0;
-    padding: 0 0 0.5em 0;
+  margin: 0;
+  padding: 0 0 0.5em 0;
 }
 
 img {
@@ -64,8 +64,8 @@ footer {
 }
 
 .intro-text {
-    margin: 0;
   width: 400px;
+  margin: 0;
 }
 
 .button-container {
@@ -79,10 +79,6 @@ footer {
   gap: 3em;
 }
 
-.hide {
-  display: none;
-}
-
 .display-score-container {
   display: flex;
   gap: 3em;
@@ -90,7 +86,7 @@ footer {
 
 .player-score,
 .computer-score {
-    font-size: 1.25em;
+  font-size: 1.25em;
 }
 
 .round-result,
@@ -100,8 +96,12 @@ footer {
 }
 
 .footer-text {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.hide {
+  display: none;
 }
 
 .screen-reader {

@@ -17,7 +17,6 @@ buttonNodes.forEach((button) => {
       computerMove = computerPlay(),
       roundResult = playRound(playerMove, computerMove);
 
-    //updateScore(roundResult);
     displayMoveSelection(playerMove, computerMove);
     displayPlayerScore(playerScore);
     displayComputerScore(computerScore);
@@ -35,34 +34,42 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   let result = "",
-  winner = '';
+    winner = "";
 
   if (playerSelection === computerSelection) {
-    result = "Ah, a tie!";
-  } else if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
-      result = "That's one for me. Paper beats Rock.";
-      winner = 'stranger';
-    } else {
-      result = "You won this one. Rock beats Scissors.";
-      winner = 'player';
-    }
-  } else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") {
-      result = "That's one for me. Scissors beats Paper.";
-      winner = 'stranger';
-    } else {
-      result = "You won this one. Paper beats Rock.";
-      winner = 'player';
-    }
-  } else if (playerSelection === "scissors") {
-    if (computerSelection === "rock") {
-      result = "That's one for me. Rock beats Scissors.";
-      winner = 'stranger';
-    } else {
-      result = "You won this one. Scissors beats Paper.";
-      winner = 'player';
-    }
+    return "Ah, a tie!";
+  }
+
+  switch (playerSelection) {
+    case "rock":
+      if (computerSelection === "paper") {
+        result = "That's one for me. Paper beats Rock.";
+        winner = "stranger";
+      } else {
+        result = "You won this one. Rock beats Scissors.";
+        winner = "player";
+      }
+      break;
+    case "paper":
+      if (computerSelection === "scissors") {
+        result = "That's one for me. Scissors beats Paper.";
+        winner = "stranger";
+      } else {
+        result = "You won this one. Paper beats Rock.";
+        winner = "player";
+      }
+      break;
+    case "scissors":
+      if (computerSelection === "rock") {
+        result = "That's one for me. Rock beats Scissors.";
+        winner = "stranger";
+      } else {
+        result = "You won this one. Scissors beats Paper.";
+        winner = "player";
+      }
+      break;
+    default:
+      console.log("That's not a valid input");
   }
 
   updateScore(winner);
@@ -71,9 +78,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateScore(winner) {
-  if (winner === 'player') {
+  if (winner === "player") {
     playerScore++;
-  } else if (winner === 'stranger') {
+  } else if (winner === "stranger") {
     computerScore++;
   }
 }
