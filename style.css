@@ -73,9 +73,15 @@ footer {
   padding-bottom: 1em;
 }
 
-.intro-text {
+.intro-text,
+.result-text {
   width: 400px;
   margin: 0;
+  text-align: left;
+}
+
+.result-text {
+  font-size: 1.25em;
 }
 
 .button-container {
@@ -96,12 +102,6 @@ footer {
 
 .player-score,
 .computer-score {
-  font-size: 1.25em;
-}
-
-.round-result,
-.game-result {
-  height: 25px;
   font-size: 1.25em;
 }
 

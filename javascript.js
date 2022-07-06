@@ -6,7 +6,7 @@ let computerScore = 0,
 const playerScoreNode = document.querySelector(".player-score"),
   computerScoreNode = document.querySelector(".computer-score"),
   roundResultNode = document.querySelector(".round-result"),
-  gameResultNode = document.querySelector(".game-result"),
+  strangerIndicatorNode = document.querySelector(".stranger-indicator"),
   buttonNodes = document.querySelectorAll("button"),
   playerMoveNodes = document.querySelectorAll(".player-move"),
   computerMoveNodes = document.querySelectorAll(".computer-move");
@@ -21,7 +21,6 @@ buttonNodes.forEach((button) => {
     displayPlayerScore(playerScore);
     displayComputerScore(computerScore);
     displayTextResult(roundResult);
-    displayGameResult();
   });
 });
 
@@ -118,10 +117,14 @@ function displayComputerScore(computerScore) {
 }
 
 function displayTextResult(roundResult) {
-  roundResultNode.textContent = roundResult;
+  if (!strangerIndicatorNode.textContent) {
+    strangerIndicatorNode.textContent = 'Stranger: ';
+  }
+  
+  roundResultNode.textContent = roundResult + gameResult();
 }
 
-function displayGameResult() {
+function gameResult() {
   let gameResult = "";
 
   if (computerScore === 5) {
@@ -133,6 +136,5 @@ function displayGameResult() {
     playerScore = 0;
     gameResult = " Hmph, you won the game. Want to play again?";
   }
-
-  gameResultNode.textContent = gameResult;
+  return gameResult;
 }
