@@ -9,25 +9,35 @@ body {
   height: 100%;
 }
 
-body,
-main {
+body {
   display: flex;
   flex-direction: column;
-}
-
-body {
   justify-content: space-between;
   margin: 0;
+  position: relative;
+}
+
+body:before {
+  content:'';
   background-image: url("./images/dango-offwhite.png");
   background-repeat: no-repeat;
   background-position: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  opacity: 0.6;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-self: center;
   gap: 1.5em;
+  position: relative;
 }
 
 button {
