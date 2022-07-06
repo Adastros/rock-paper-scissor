@@ -42,33 +42,33 @@ function playRound(playerSelection, computerSelection) {
   switch (playerSelection) {
     case "rock":
       if (computerSelection === "paper") {
-        result = "That's one for me. Paper beats Rock.";
+        result = "I won this round. Paper beats Rock.";
         winner = "stranger";
       } else {
-        result = "You won this one. Rock beats Scissors.";
+        result = "You won this round. Rock beats Scissors.";
         winner = "player";
       }
       break;
     case "paper":
       if (computerSelection === "scissors") {
-        result = "That's one for me. Scissors beats Paper.";
+        result = "I won this round. Scissors beats Paper.";
         winner = "stranger";
       } else {
-        result = "You won this one. Paper beats Rock.";
+        result = "You won this round. Paper beats Rock.";
         winner = "player";
       }
       break;
     case "scissors":
       if (computerSelection === "rock") {
-        result = "That's one for me. Rock beats Scissors.";
+        result = "I won this round. Rock beats Scissors.";
         winner = "stranger";
       } else {
-        result = "You won this one. Scissors beats Paper.";
+        result = "You won this round. Scissors beats Paper.";
         winner = "player";
       }
       break;
     default:
-      console.log("That's not a valid input");
+      return "You can't play that move! That's not allowed.";
   }
 
   updateScore(winner);
@@ -118,10 +118,14 @@ function displayComputerScore(computerScore) {
 
 function displayTextResult(roundResult) {
   if (!strangerIndicatorNode.textContent) {
-    strangerIndicatorNode.textContent = 'Stranger: ';
+    strangerIndicatorNode.textContent = "Stranger: ";
   }
-  
-  roundResultNode.textContent = roundResult + gameResult();
+
+  if (computerScore === 5 || playerScore === 5) {
+    roundResultNode.textContent = gameResult();
+  } else {
+    roundResultNode.textContent = roundResult;
+  }
 }
 
 function gameResult() {
@@ -130,11 +134,12 @@ function gameResult() {
   if (computerScore === 5) {
     computerScore = 0;
     playerScore = 0;
-    gameResult = " I won! Thanks for the meal. Want to play again?";
+    gameResult =
+      "I won! Thanks for the meal. Want to play again? Maybe you'll win the next game.";
   } else if (playerScore === 5) {
     computerScore = 0;
     playerScore = 0;
-    gameResult = " Hmph, you won the game. Want to play again?";
+    gameResult = "Hmph, you won the game. Want to play again? ";
   }
   return gameResult;
 }
