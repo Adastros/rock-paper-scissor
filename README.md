@@ -6,7 +6,7 @@ This project is part of the curriculum for The Odin Project.
 
 Link to the live page: https://adastros.github.io/rock-paper-scissor/
 
-###What I learned or improved on:
+### What I learned or improved on:
 - how to target and dynamically interact with nodes
 - how to create a branch of my main repo and merge the branch back to
 the main branch
